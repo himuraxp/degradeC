@@ -5,22 +5,25 @@
 void pause();
 
 int main(int argc, char *argv[])
-{
+{   
+    /* Initialisation d'une surface sur *ecran et *lignes qui contient 256 place dans son tableau .  */
     SDL_Surface *ecran = NULL, *lignes[256] = {NULL};
-    SDL_Rect position;
+    SDL_Rect position;  // Initialisation d'une varaiable *position.
     int i = 0;
 
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO);   // Initialisation de la vidéo. 
 
-    ecran = SDL_SetVideoMode(640, 256, 32, SDL_HWSURFACE);
-
-    for (i = 0 ; i <= 255 ; i++)
+    ecran = SDL_SetVideoMode(640, 256, 32, SDL_HWSURFACE); // Configuration du mode vidéo.
+    
+    /* Génération d'une boucle créant chaque *ligne du tableau. */
+    for (i = 0 ; i <= 255 ; i++) 
         lignes[i] = SDL_CreateRGBSurface(SDL_HWSURFACE, 640, 1, 32, 0, 0, 0, 0);
 
-    SDL_WM_SetCaption("Mon dégradé en SDL !", NULL);
+    SDL_WM_SetCaption("Mon dégradé en SDL !", NULL); // Affichage d'un titre.
 
-    SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
+    SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0)); // Gestion de la couleur sur *ecran 
 
+    /* Génération d'une boucle de positionnement */
     for (i = 0 ; i <= 255 ; i++)
     {
         position.x = 0; // Les lignes sont à gauche (abscisse de 0)
