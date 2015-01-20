@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1421684441 source:/home/himuraxp/cours/projetSDL/dégradé/main.cpp
+	<stdlib.h>
+	<stdio.h>
+	<SDL/SDL.h>
+
